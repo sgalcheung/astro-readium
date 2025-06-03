@@ -1,0 +1,19 @@
+---
+import { CustomProviders } from "@/components/CustomProviders";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Readium</title>
+  </head>
+  <body>
+    <CustomProviders client:only>
+      <slot />
+    </CustomProviders>
+  </body>
+</html>
