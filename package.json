@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "npx wrangler dev",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.5.3",
     "@astrojs/react": "^4.3.0",
     "@edrlab/thorium-web": "^0.12.0",
     "@readium/css": "2.0.0-beta.13",
@@ -29,5 +30,8 @@
     "react-resizable-panels": "^3.0.2",
     "react-stately": "^3.38.0"
   },
-  "packageManager": "pnpm@9.11.0"
+  "packageManager": "pnpm@9.11.0",
+  "devDependencies": {
+    "wrangler": "^4.15.2"
+  }
 }
