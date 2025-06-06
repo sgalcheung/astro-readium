@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 import react from "@astrojs/react";
 
@@ -23,6 +23,16 @@ export default defineConfig({
     ssr: {
       noExternal: ["@edrlab/thorium-web"],
     },
+  },
+  experimental: {
+    fonts: [
+      {
+        provider: fontProviders.google(),
+        name: "Inter",
+        cssVariable: "--font-inter",
+        subsets: ["latin"],
+      },
+    ],
   },
 
   adapter: cloudflare(),

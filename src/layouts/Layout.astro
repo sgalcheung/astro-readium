@@ -1,5 +1,6 @@
 ---
 import { CustomProviders } from "@/components/CustomProviders";
+import { Font } from "astro:assets";
 ---
 
 <!doctype html>
@@ -10,10 +11,26 @@ import { CustomProviders } from "@/components/CustomProviders";
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro Readium</title>
+    <Font cssVariable="--font-inter" preload />
+    <style>
+      .font-inter {
+        font-family: var(--font-inter);
+      }
+    </style>
   </head>
-  <body>
+  <body class="font-inter">
     <CustomProviders client:only>
       <slot />
     </CustomProviders>
   </body>
 </html>
+
+<style>
+  html,
+  body {
+    color: var(--theme-text);
+    background-color: var(--theme-background);
+    height: 100%;
+    margin: 0;
+  }
+</style>
