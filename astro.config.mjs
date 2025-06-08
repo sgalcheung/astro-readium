@@ -4,6 +4,7 @@ import { defineConfig, fontProviders } from "astro/config";
 import react from "@astrojs/react";
 
 import cloudflare from "@astrojs/cloudflare";
+import svgr from "vite-plugin-svgr";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,6 +24,23 @@ export default defineConfig({
     ssr: {
       noExternal: ["@edrlab/thorium-web"],
     },
+    plugins: [
+      svgr({
+        include: "**/*.svg?react",
+        svgrOptions: {
+          plugins: ["@svgr/plugin-svgo", "@svgr/plugin-jsx"],
+          svgoConfig: {
+            plugins: [
+              "preset-default",
+              "removeTitle",
+              "removeDesc",
+              "removeDoctype",
+              "cleanupIds",
+            ],
+          },
+        },
+      }),
+    ],
   },
   experimental: {
     fonts: [

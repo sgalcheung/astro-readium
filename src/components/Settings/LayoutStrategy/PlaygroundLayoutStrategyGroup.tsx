@@ -1,14 +1,14 @@
 
 
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, type ComponentType, type SVGProps } from "react";
 
 import Locale from "../../../resources/locales/en.json";
 
 import { LayoutStrategy } from "@readium/navigator";
 
-import FitIcon from "./assets/icons/fit_width.svg";
-import RangeIcon from "./assets/icons/arrow_range.svg";
-import AddColumnIcon from "./assets/icons/add_column_right.svg";
+import FitIconRaw from "./assets/icons/fit_width.svg?react";
+import RangeIconRaw from "./assets/icons/arrow_range.svg?react";
+import AddColumnIconRaw from "./assets/icons/add_column_right.svg?react";
 
 import { ThLayoutStrategy } from "@edrlab/thorium-web/core/preferences";
 
@@ -21,6 +21,10 @@ import {
 } from "@edrlab/thorium-web/epub";
 
 import { PlaygroundLineLengths } from "./PlaygroundLineLengths";
+
+const FitIcon = FitIconRaw as ComponentType<SVGProps<SVGElement>>;
+const RangeIcon = RangeIconRaw as ComponentType<SVGProps<SVGElement>>;
+const AddColumnIcon = AddColumnIconRaw as ComponentType<SVGProps<SVGElement>>;
 
 export const PlaygroundLayoutStrategyGroup = () => {
   const layoutStrategy = useAppSelector(state => state.settings.layoutStrategy);

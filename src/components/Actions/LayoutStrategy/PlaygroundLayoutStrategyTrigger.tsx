@@ -1,6 +1,7 @@
 import Locale from "../../../resources/locales/en.json";
 
-import LayoutIcon from "./assets/icons/fit_page_width.svg";
+import LayoutIconRaw from "./assets/icons/fit_page_width.svg?react";
+import type { ComponentType, SVGProps } from "react";
 
 import { ThActionsTriggerVariant } from "@edrlab/thorium-web/core/components";
 import { 
@@ -15,6 +16,8 @@ import {
 } from "@edrlab/thorium-web/epub";
 
 import { PlaygroundActionsKeys } from "@/preferences/preferences";
+
+const LayoutIcon = LayoutIconRaw as ComponentType<SVGProps<SVGElement>>;
 
 export const PlaygroundLayoutStrategyTrigger = ({ variant }: StatefulActionTriggerProps) => {
   const RSPrefs = usePreferences();
